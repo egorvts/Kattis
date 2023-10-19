@@ -1,0 +1,7 @@
+1
+5
+mom: upper-upper-lower-middle class             |  10221
+dad: middle-middle-middle-lower-middle class    |  10111
+queenelizabeth: upper-upper-upper class         |  22211
+chair: lower-lower class                        |  00111
+unclebob: middle-middle-lower-middle class      |  10111

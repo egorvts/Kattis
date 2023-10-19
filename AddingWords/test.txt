@@ -1,0 +1,10 @@
+def foo 3
+def bar 4
+def sum 7
+def diff -1
+calc foo + bar = 
+def foo 5
+def bar 2
+calc foo + bar = 
+calc foo - bar = 
+calc sum - foo + foo =

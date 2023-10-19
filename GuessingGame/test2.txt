@@ -1,0 +1,7 @@
+9
+too high
+10
+too low
+1
+right on
+0
