@@ -1,14 +1,20 @@
 n = int(input())
-guest = list(map(int, input().split()))
-min_distance = n
+guests = list(map(int, input().split()))
+distances = {}
+
 for i in range(n):
-    distance = 1
-    for j in range(i+1, n):
-        if guest[i] == guest[j]:
-            if distance < min_distance:
-                min_distance = distance
-                break
+    if guests[i] in distances:
+        if len(distances[guests[i]]) == 1:
+            distances[guests[i]].append(i)
         else:
-            distance += 1
+            if (distances[guests[i]][1] - distances[guests[i]][0]) > (i - distances[guests[i]][1]):
+                distances[guests[i]] = [distances[guests[i]][1], i]
+    else:
+        distances[guests[i]] = [i]
+
+min_distance = n
+for d in distances.values():
+    if (len(d) == 2) and ((d[1] - d[0]) < min_distance):
+        min_distance = d[1] - d[0]
 
 print(min_distance)
