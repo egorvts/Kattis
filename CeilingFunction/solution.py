@@ -32,31 +32,23 @@ class BST:
         return 0
 
 
-def are_equal_shape_BSTs(tree1, tree2):
-    if tree1 == tree2 == None:
-        return True
-    elif type(tree1) != type(tree2):
-        return False
-    elif tree1 != None and tree2 != None:
-        tree1_depth = tree1.depth()
-        tree2_depth = tree2.depth()
-        if tree1_depth != tree2_depth:
-            return False
-        return are_equal_shape_BSTs(tree1.left, tree2.left) and are_equal_shape_BSTs(tree1.right, tree2.right)
+def BST_to_str(tree, lvl):
+    if not tree:
+        return ""
+    else:
+        return BST_to_str(tree.left, lvl+1) + str(lvl) + BST_to_str(tree.right, lvl+1)
 
 
-prototypes = []
+prototypes = {}
 for i in range(n):
     inp = list(map(int, input().split()))
     tree = BST()
-    for i in range(len(inp)):
+    for i in range(k):
         tree.insert(inp[i])
-    prototypes.append(tree)
+    s = BST_to_str(tree, 0)
+    if s in prototypes:
+        prototypes[s] += 1
+    else:
+        prototypes[s] = 1
 
-res = 0
-for i in range(len(prototypes)):
-    for j in range(i + 1, len(prototypes)):
-        if are_equal_shape_BSTs(prototypes[i], prototypes[j]):
-            res += 1
-
-print(len(prototypes) - res)
+print(len(prototypes))
